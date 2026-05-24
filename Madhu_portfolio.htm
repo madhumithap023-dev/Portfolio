@@ -1,419 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
   <title>Madhu Mitha Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --primary: #355a7a;
-      --primary-dark: #27445f;
-      --primary-light: #eaf0f6;
-      --accent: #7aabcf;
-      --bg: #eef1f5;
-      --white: #ffffff;
-      --text: #333;
-      --grey: #888;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    body{
+      font-family:Arial, sans-serif;
+      background-color:#e5e5e5;
     }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+    .navbar{
+      background-color:#F5F7FA;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+      position:sticky;
+      top:0;
+      z-index:1000;
     }
 
-    /* ── NAVBAR ── */
-    .navbar {
-      background-color: var(--white);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 12px rgba(53,90,122,0.08);
+    .left{
+      display:flex;
+      align-items:center;
+      gap:10px;
     }
 
-    .left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .icon{
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background-color:#355a7a;
+      color:white;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:22px;
+      font-weight:bold;
+      font-family:Georgia, serif;
     }
 
-    .logo-circle {
-      width: 36px;
-      height: 36px;
-      background: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      color: white;
-      font-size: 18px;
-      font-weight: 700;
+    .title{
+      font-size:20px;
+      font-weight:bold;
+      color:black;
     }
 
-    .nav-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--primary-dark);
-      letter-spacing: 0.5px;
+    .menu{
+      display:flex;
+      align-items:center;
     }
 
-    .menu a {
-      text-decoration: none;
-      margin-left: 28px;
-      color: var(--primary);
-      font-weight: 500;
-      font-size: 15px;
-      transition: 0.3s;
-      position: relative;
+    .menu a{
+      text-decoration:none;
+      margin-left:30px;
+      color:#355a7a;
+      font-weight:500;
+      transition:0.3s;
     }
 
-    .menu a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: 0.3s;
+    .menu a:hover{
+      color:black;
     }
 
-    .menu a:hover::after { width: 100%; }
-    .menu a:hover { color: var(--primary-dark); }
-
-    .right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    section{
+      min-height:100vh;
+      padding:100px 80px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
     }
 
-    .social-link {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--primary-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.3s;
-      text-decoration: none;
+    .content{
+      max-width:800px;
     }
 
-    .social-link:hover {
-      background: var(--primary);
-      transform: translateY(-2px);
+    h1{
+      font-size:60px;
+      color:#355a7a;
+      font-family:Georgia, serif;
+      margin-bottom:10px;
     }
 
-    .social-link svg {
-      width: 18px;
-      height: 18px;
-      fill: var(--primary);
-      transition: 0.3s;
+    h2{
+      font-size:45px;
+      color:#355a7a;
+      margin-bottom:20px;
     }
 
-    .social-link:hover svg { fill: white; }
-
-    /* ── SECTIONS ── */
-    section {
-      min-height: 100vh;
-      padding: 100px 80px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+    h3{
+      letter-spacing:3px;
+      font-size:24px;
+      color:#355a7a;
+      font-weight:300;
+      margin-bottom:20px;
     }
 
-    .content { max-width: 820px; }
-
-    h1 {
-      font-size: 64px;
-      color: var(--primary);
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 10px;
-      line-height: 1.1;
+    h4{
+      color:grey;
+      font-size:30px;
+      margin-bottom:10px;
     }
 
-    h2 {
-      font-size: 42px;
-      color: var(--primary);
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 20px;
+    p{
+      font-size:20px;
+      line-height:1.8;
+      color:#333;
+      margin-bottom:20px;
     }
 
-    h3 {
-      letter-spacing: 4px;
-      font-size: 13px;
-      color: var(--accent);
-      font-weight: 600;
-      text-transform: uppercase;
-      margin-bottom: 20px;
+    .line{
+      width:80px;
+      height:3px;
+      background:#355a7a;
+      margin:20px auto;
     }
 
-    h4 {
-      color: var(--grey);
-      font-size: 22px;
-      font-weight: 400;
-      margin-bottom: 10px;
+    .getstarted-btn{
+      padding:12px 20px;
+      background-color:#355a7a;
+      color:white;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+      font-size:16px;
+      transition:0.3s;
     }
 
-    p {
-      font-size: 17px;
-      line-height: 1.9;
-      color: #555;
-      margin-bottom: 18px;
+    .getstarted-btn:hover{
+      background-color:#27445f;
     }
 
-    p:last-child { margin-bottom: 0; }
-
-    .line {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      margin: 20px auto 30px;
-      border-radius: 2px;
+    .card{
+      background:white;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      margin-top:20px;
     }
 
-    .getstarted-btn {
-      padding: 13px 30px;
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 15px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      transition: 0.3s;
-      margin-top: 10px;
+    a{
+      text-decoration:none;
     }
 
-    .getstarted-btn:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(53,90,122,0.3);
+    .skills-box{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
     }
 
-    .card {
-      background: var(--white);
-      padding: 35px 40px;
-      border-radius: 14px;
-      box-shadow: 0 6px 24px rgba(53,90,122,0.09);
-      margin-top: 20px;
-      text-align: left;
+    .skills-box span{
+      background:#eaf0f6;
+      padding:8px 12px;
+      border-radius:20px;
+      font-size:16px;
+      color:#355a7a;
     }
 
-    a { text-decoration: none; }
-
-    /* ── HOME ── */
-    #home {
-      background: linear-gradient(135deg, #f0f4f8 0%, #e4ecf4 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    #home::before {
-      content: '';
-      position: absolute;
-      top: -80px;
-      right: -80px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(122,171,207,0.18) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    #home::after {
-      content: '';
-      position: absolute;
-      bottom: -60px;
-      left: -60px;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(53,90,122,0.1) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .badge {
-      display: inline-block;
-      background: var(--primary-light);
-      color: var(--primary);
-      border-radius: 30px;
-      padding: 5px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 5px;
-    }
-
-    .skill-tag {
-      background: var(--primary-light);
-      padding: 10px 18px;
-      border-radius: 30px;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--primary);
-      border: 1.5px solid transparent;
-      transition: 0.3s;
-    }
-
-    .skill-tag:hover {
-      border-color: var(--accent);
-      background: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 14px rgba(53,90,122,0.12);
-    }
-
-    /* ── PROJECTS ── */
-    .project-card {
-      background: var(--white);
-      padding: 28px 32px;
-      border-radius: 14px;
-      box-shadow: 0 6px 24px rgba(53,90,122,0.09);
-      margin-top: 20px;
-      text-align: left;
-      border-left: 4px solid var(--primary);
-      transition: 0.3s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(53,90,122,0.15);
-    }
-
-    .project-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--primary-dark);
-      margin-bottom: 10px;
-    }
-
-    .project-tag {
-      display: inline-block;
-      background: var(--primary-light);
-      color: var(--accent);
-      padding: 3px 10px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-
-    /* ── EDUCATION ── */
-    .edu-item {
-      padding: 20px 0;
-      border-bottom: 1px solid #eef1f5;
-    }
-
-    .edu-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .edu-item:first-child { padding-top: 0; }
-
-    .edu-degree {
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--primary-dark);
-      margin-bottom: 4px;
-    }
-
-    .edu-college {
-      font-size: 15px;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    /* ── CONTACT ── */
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 0;
-      border-bottom: 1px solid #eef1f5;
-      font-size: 16px;
-      color: #555;
-    }
-
-    .contact-row:last-child { border-bottom: none; padding-bottom: 0; }
-
-    .contact-icon {
-      width: 38px;
-      height: 38px;
-      background: var(--primary-light);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .contact-icon svg {
-      width: 18px;
-      height: 18px;
-      fill: var(--primary);
-    }
-
-    .contact-row a {
-      color: var(--primary);
-      font-weight: 500;
-      transition: 0.2s;
-    }
-
-    .contact-row a:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 24px;
-      font-size: 14px;
-      color: var(--grey);
-      background: var(--white);
-      border-top: 1px solid #e8edf2;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .navbar { padding: 14px 20px; }
-      .menu { display: none; }
-      section { padding: 80px 24px; }
-      h1 { font-size: 42px; }
-      h2 { font-size: 32px; }
-      .card { padding: 24px 22px; }
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
   <div class="navbar">
+
     <div class="left">
-      <div class="logo-circle">M</div>
-      <div class="nav-title">Madhu Mitha P</div>
+
+      <div class="icon">M</div>
+
+      <div class="title">Madhu Mitha P</div>
+
     </div>
 
     <div class="menu">
@@ -425,177 +192,189 @@
       <a href="#contact">Contact</a>
     </div>
 
-    <div class="right">
-      <a href="https://github.com/madhumithap023-dev" target="_blank" class="social-link" title="GitHub">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-        </svg>
-      </a>
-      <a href="https://www.linkedin.com/in/madhu-mitha-p-2014ab402/" target="_blank" class="social-link" title="LinkedIn">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-      </a>
-    </div>
   </div>
 
-  <!-- HOME -->
   <section id="home">
+
     <div class="content">
-      <div class="badge">Portfolio</div>
+
       <h4>Hi, I am</h4>
+
       <h1>Madhu Mitha</h1>
-      <h3>Web Developer &nbsp;|&nbsp; ML Enthusiast</h3>
+
+      <h3>WEB DEVELOPER | ML ENTHUSIAST</h3>
+
       <div class="line"></div>
+
       <p>
-        I am passionate about creating clean, responsive, and user-friendly websites.
-        Currently exploring Web Development, UI/UX Design, and Machine Learning to
+        I am passionate about creating clean,
+        responsive, and user-friendly websites.
+        Currently exploring Web Development,
+        UI/UX Design, and Machine Learning to
         build impactful digital solutions and innovative projects.
       </p>
+
       <a href="#projects">
         <button class="getstarted-btn">View My Work</button>
       </a>
+
     </div>
+
   </section>
 
-  <!-- ABOUT -->
+
   <section id="about">
+
     <div class="content">
+
       <h2>About Me</h2>
+
       <div class="line"></div>
+
       <div class="card">
+
         <p>
-          I am a postgraduate Data Science student with a Mathematics background
-          in undergraduate studies. I am interested in Web Development, Machine Learning,
-          and UI/UX Design, and I enjoy building simple and professional web applications.
+          I am a postgraduate Data Science student with
+          a Mathematics background in undergraduate studies.
+          I am interested in Web Development, Machine Learning,
+          and UI/UX Design, and I enjoy building simple and
+          professional web applications.
         </p>
+
         <p>
-          I enjoy building clean and professional websites and continuously learning
-          new technologies to enhance my skills in both development and data science fields.
+          I enjoy building clean and professional websites and
+          continuously learning new technologies to enhance my skills in
+          both development and data science fields.
         </p>
+
       </div>
+
     </div>
+
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
+
     <div class="content">
+
       <h2>Skills</h2>
+
       <div class="line"></div>
-      <div class="card">
-        <div class="skills-grid">
-          <span class="skill-tag">HTML</span>
-          <span class="skill-tag">CSS</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Machine Learning</span>
-          <span class="skill-tag">UI/UX Design</span>
-          <span class="skill-tag">Figma</span>
-          <span class="skill-tag">Web Design</span>
-          <span class="skill-tag">Problem Solving</span>
-          <span class="skill-tag">Teamwork</span>
-        </div>
+
+      <div class="card skills-box">
+
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>Python</span>
+        <span>Machine Learning</span>
+        <span>UI/UX Design</span>
+        <span>Figma</span>
+        <span>Web Design</span>
+        <span>Problem Solving</span>
+        <span>Teamwork</span>
+
       </div>
+
     </div>
+
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
+
     <div class="content">
+
       <h2>Projects</h2>
+
       <div class="line"></div>
 
-      <div class="project-card">
-        <div class="project-tag">AI &amp; ML</div>
-        <div class="project-title">Student Dropout and Academic Success Using AI &amp; ML</div>
-        <p style="margin-bottom:0;">
-          Developed a machine learning model to analyze and predict student dropout patterns
-          and academic success based on multiple parameters, helping institutions take timely action.
+      <div class="card">
+
+        <p>
+          <b>Student Dropout and Academic Success Using AI & ML:</b>
+          Developed a machine learning model to analyze and predict
+          student academic success based on multiple parameters.
         </p>
+
+        <p>
+          <b>Intern Performance Prediction Using AI & ML:</b>
+          Developed an AI & ML project at Infyro Technologies and
+          Frontier Wox to predict intern performance
+          using data analysis and machine learning techniques.
+        </p>
+
       </div>
 
-      <div class="project-card">
-        <div class="project-tag">AI &amp; ML</div>
-        <div class="project-title">Intern Performance Prediction Using AI &amp; ML</div>
-        <p style="margin-bottom:0;">
-          Developed an AI &amp; ML project at Infyro Technologies and Frontier Wox to predict
-          intern performance using data analysis and machine learning techniques.
-        </p>
-      </div>
     </div>
+
   </section>
 
-  <!-- EDUCATION -->
   <section id="education">
+
     <div class="content">
+
       <h2>Education</h2>
+
       <div class="line"></div>
+
       <div class="card">
 
-        <div class="edu-item">
-          <div class="edu-degree">Postgraduate — M.Sc. Data Science</div>
-          <div class="edu-college">Holy Cross College, Trichy</div>
-          <p style="margin-bottom:0; font-size:15px;">
-            Currently pursuing PG in Data Science with focus on Machine Learning,
-            Data Analysis, and Artificial Intelligence.
-          </p>
-        </div>
+        <p>
+          <b>Postgraduate (Data Science):</b>
+          Holy Cross College, Trichy
+          Currently pursuing PG in Data Science with
+          focus on Machine Learning, Data Analysis,
+          and Artificial Intelligence.
+        </p>
 
-        <div class="edu-item">
-          <div class="edu-degree">Undergraduate — B.Sc. Mathematics</div>
-          <div class="edu-college">Holy Cross College, Trichy</div>
-          <p style="margin-bottom:0; font-size:15px;">
-            Completed UG in Mathematics, which built strong foundations in logical
-            thinking, statistics, and problem-solving skills.
-          </p>
-        </div>
+        <p>
+          <b>Undergraduate (B.Sc Mathematics):</b>
+          Holy Cross College, Trichy
+          Completed UG in Mathematics, which built strong
+          foundations in logical thinking, statistics,
+          and problem-solving skills.
+        </p>
 
       </div>
+
     </div>
+
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
+
     <div class="content">
+
       <h2>Contact</h2>
+
       <div class="line"></div>
+
       <div class="card">
 
-        <div class="contact-row">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </div>
-          <span>madhumithap023@gmail.com</span>
-        </div>
+        <p>Email: madhumithap023@gmail.com</p>
 
-        <div class="contact-row">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          </div>
-          <span>9344524171</span>
-        </div>
+        <p>Phone: 9344524171</p>
 
-        <div class="contact-row">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </div>
-          <a href="https://www.linkedin.com/in/madhu-mitha-p-2014ab402/" target="_blank">View My LinkedIn</a>
-        </div>
+        <p>
+          LinkedIn:
+          <a href="https://www.linkedin.com/in/madhu-mitha-p-2014ab402/" target="_blank">
+            View My LinkedIn
+          </a>
+        </p>
 
-        <div class="contact-row">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          </div>
-          <a href="https://github.com/madhumithap023-dev" target="_blank">View My GitHub</a>
-        </div>
+        <p>
+          GitHub:
+          <a href="https://github.com/madhumithap023-dev" target="_blank">
+            View My GitHub
+          </a>
+        </p>
 
       </div>
-    </div>
-  </section>
 
-  <footer>
-    &copy; 2025 Madhu Mitha P &nbsp;·&nbsp; Built with ♥
-  </footer>
+    </div>
+
+  </section>
 
 </body>
+
 </html>
